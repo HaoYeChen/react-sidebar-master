@@ -15,7 +15,7 @@ import {
   SThemeLabel,
   SThemeToggler,
   SToggleThumb,
-  TopNav,
+  Container,
 } from "./styles";
 
 import { logoSVG } from "../../assets";
@@ -50,8 +50,8 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-    <Navbar />
+    <Container>
+      <Navbar />
       <SSidebar isOpen={sidebarOpen}>
         <>
           <SSidebarButton
@@ -114,7 +114,7 @@ const Sidebar = () => {
           </SThemeToggler>
         </STheme>
       </SSidebar>
-    </>
+    </Container>
   );
 };
 
@@ -138,6 +138,28 @@ const linksArray = [
     notification: 0,
   },
   {
+    label: "Diagrams",
+    icon: <AiOutlineApartment />,
+    to: "/diagrams",
+    notification: 1,
+  },
+  {
+    label: "Diagrams",
+    icon: <AiOutlineApartment />,
+    to: "/diagrams",
+    notification: 1,
+  },
+  {
+    label: "Diagrams",
+    icon: <AiOutlineApartment />,
+    to: "/diagrams",
+    notification: 1,
+  },{
+    label: "Diagrams",
+    icon: <AiOutlineApartment />,
+    to: "/diagrams",
+    notification: 1,
+  },{
     label: "Diagrams",
     icon: <AiOutlineApartment />,
     to: "/diagrams",

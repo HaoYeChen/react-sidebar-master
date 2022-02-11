@@ -1,7 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+
+`
 
 const HomePage = () => {
-    return <h1>Home Page</h1>;
+    return (
+        <Container>
+            1
+        </Container>
+    )
 };
 
 export default HomePage;

@@ -5,7 +5,7 @@ const Container = styled.div``;
 const TestPage = () => {
   return (
     <Container>
-      <h1>Test</h1>
+      <h1>2</h1>
       <p>
         What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
         and typesetting industry. Lorem Ipsum has been the industry's standard

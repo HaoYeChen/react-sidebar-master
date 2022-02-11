@@ -9,14 +9,13 @@ import { darkTheme, lightTheme } from "./styles/theme";
 export const ThemeContext = React.createContext(null);
 
 const App = () => {
-    const [theme, setTheme] = useState("light");
-    const themeStyle = theme === "light" ? lightTheme : darkTheme;
+  const [theme, setTheme] = useState("light");
+  const themeStyle = theme === "light" ? lightTheme : darkTheme;
 
-    return (
-        <ThemeContext.Provider value={{ setTheme, theme }}>
-            <ThemeProvider theme={themeStyle}>
-                <GlobalStyle />
-                <Helmet>
+  return (
+    <ThemeContext.Provider value={{ setTheme, theme }}>
+      <ThemeProvider theme={themeStyle}>
+        {/* <Helmet>
                     <title>Sidebar - Code Focus</title>
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,15 +23,16 @@ const App = () => {
                         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
                         rel="stylesheet"
                     />
-                </Helmet>
-                <>
-                    <Layout>
-                        <Routes />
-                    </Layout>
-                </>
-            </ThemeProvider>
-        </ThemeContext.Provider>
-    );
+                </Helmet> */}
+        <>
+          <Layout>
+            <GlobalStyle />
+            <Routes />
+          </Layout>
+        </>
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  );
 };
 
 export default App;
