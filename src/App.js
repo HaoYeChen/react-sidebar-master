@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import Layout from "./components/Layout/Layout";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Routes from "./Routes";
 import { GlobalStyle } from "./styles/globalStyles";
 import { darkTheme, lightTheme } from "./styles/theme";
@@ -25,10 +26,14 @@ const App = () => {
                     />
                 </Helmet> */}
         <>
-          <Layout>
-            <GlobalStyle />
-            <Routes />
-          </Layout>
+        
+          {/* <Layout>
+            
+            
+          </Layout> */}
+          <GlobalStyle />
+          <Sidebar />
+          <Routes />
         </>
       </ThemeProvider>
     </ThemeContext.Provider>

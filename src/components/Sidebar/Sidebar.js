@@ -53,14 +53,14 @@ const Sidebar = () => {
     <Container>
       <Navbar />
       <SSidebar isOpen={sidebarOpen}>
-        <>
-          <SSidebarButton
-            isOpen={sidebarOpen}
-            onClick={() => setSidebarOpen((p) => !p)}
-          >
-            <AiOutlineLeft />
-          </SSidebarButton>
-        </>
+
+        <SSidebarButton
+          isOpen={sidebarOpen}
+          onClick={() => setSidebarOpen((p) => !p)}
+        >
+          <AiOutlineLeft />
+        </SSidebarButton>
+
         <SLogo>
           <img src={logoSVG} alt="logo" />
         </SLogo>
@@ -103,8 +103,8 @@ const Sidebar = () => {
             </SLink>
           </SLinkContainer>
         ))}
-        <SDivider />
-        <STheme>
+        {/* <SDivider /> */}
+        {/* <STheme>
           {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
           <SThemeToggler
             isActive={theme === "dark"}
@@ -112,7 +112,7 @@ const Sidebar = () => {
           >
             <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
           </SThemeToggler>
-        </STheme>
+        </STheme> */}
       </SSidebar>
     </Container>
   );
@@ -138,28 +138,6 @@ const linksArray = [
     notification: 0,
   },
   {
-    label: "Diagrams",
-    icon: <AiOutlineApartment />,
-    to: "/diagrams",
-    notification: 1,
-  },
-  {
-    label: "Diagrams",
-    icon: <AiOutlineApartment />,
-    to: "/diagrams",
-    notification: 1,
-  },
-  {
-    label: "Diagrams",
-    icon: <AiOutlineApartment />,
-    to: "/diagrams",
-    notification: 1,
-  },{
-    label: "Diagrams",
-    icon: <AiOutlineApartment />,
-    to: "/diagrams",
-    notification: 1,
-  },{
     label: "Diagrams",
     icon: <AiOutlineApartment />,
     to: "/diagrams",

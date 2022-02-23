@@ -8,10 +8,11 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.text};
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.6px; */
+  position: fixed;
 `;
 
 export const SSidebar = styled.div`
-  width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
+  width: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};
   background: ${({ theme }) => theme.bg};
   height: 100vh;
   padding: ${v.lgSpacing};
