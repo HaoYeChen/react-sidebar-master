@@ -18,7 +18,7 @@ import {
   Container,
 } from "./styles";
 
-import { logoSVG } from "../../assets";
+import Tooltip from "../Tooltip"
 
 import {
   AiOutlineApartment,
@@ -31,14 +31,11 @@ import { MdLogout, MdOutlineAnalytics } from "react-icons/md";
 import { BsPeople } from "react-icons/bs";
 
 import { ThemeContext } from "./../../App";
-import { useLocation } from "react-router-dom";
-import Navbar from "../navbar";
 
 const Sidebar = () => {
   const searchRef = useRef(null);
   const { setTheme, theme } = useContext(ThemeContext);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { pathname } = useLocation();
 
   const searchClickHandler = () => {
     if (!sidebarOpen) {
@@ -51,7 +48,6 @@ const Sidebar = () => {
 
   return (
     <Container>
-      <Navbar />
       <SSidebar isOpen={sidebarOpen}>
 
         <SSidebarButton
@@ -61,9 +57,10 @@ const Sidebar = () => {
           <AiOutlineLeft />
         </SSidebarButton>
 
-        <SLogo>
-          <img src={logoSVG} alt="logo" />
-        </SLogo>
+        {/* short circuit: sidebaropen is closed display KB, otherwise display KanBan */}
+        {(!sidebarOpen && <SLogo to="/">T</SLogo>) || (
+          <SLogo to="/">Test</SLogo>
+        )}
         <SSearch
           onClick={searchClickHandler}
           style={!sidebarOpen ? { width: `fit-content` } : {}}
@@ -81,9 +78,16 @@ const Sidebar = () => {
         {linksArray.map(({ icon, label, notification, to }) => (
           <SLinkContainer key={label}>
             <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-              <SLinkIcon>{icon}</SLinkIcon>
+              
+            {sidebarOpen || (
+                <Tooltip text={label} position="right" background="222831">
+                  <SLinkIcon>{icon}</SLinkIcon>
+                </Tooltip>
+              )}
+
               {sidebarOpen && (
                 <>
+                  <SLinkIcon>{icon}</SLinkIcon>
                   <SLinkLabel>{label}</SLinkLabel>
                   {/* if notifications are at 0 or null, do not display */}
                   {!!notification && (
@@ -95,16 +99,16 @@ const Sidebar = () => {
           </SLinkContainer>
         ))}
         <SDivider />
-        {secondaryLinksArray.map(({ icon, label }) => (
+        {secondaryLinksArray.map(({ icon, label, to }) => (
           <SLinkContainer key={label}>
-            <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
+            <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
               <SLinkIcon>{icon}</SLinkIcon>
               {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
             </SLink>
           </SLinkContainer>
         ))}
-        {/* <SDivider /> */}
-        {/* <STheme>
+        <SDivider />
+        <STheme>
           {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
           <SThemeToggler
             isActive={theme === "dark"}
@@ -112,7 +116,7 @@ const Sidebar = () => {
           >
             <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
           </SThemeToggler>
-        </STheme> */}
+        </STheme>
       </SSidebar>
     </Container>
   );
@@ -148,10 +152,12 @@ const linksArray = [
 const secondaryLinksArray = [
   {
     label: "Settings",
+    to: "/settings",
     icon: <AiOutlineSetting />,
   },
   {
     label: "Logout",
+    to: "/logout",
     icon: <MdLogout />,
   },
 ];

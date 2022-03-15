@@ -40,15 +40,14 @@ export const SSidebarButton = styled.button`
   transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
 `;
 
-export const SLogo = styled.div`
-  width: 52px;
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+export const SLogo = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.text};
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  display: block;
   cursor: pointer;
-
   margin-bottom: ${v.lgSpacing};
 `;
 
@@ -106,6 +105,7 @@ export const SLink = styled(Link)`
   color: inherit;
   font-size: 16px;
   padding: calc(${v.smSpacing} - 2px) 0;
+  background: blue;
 `;
 
 export const SLinkIcon = styled.div`
